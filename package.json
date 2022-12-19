@@ -1,0 +1,30 @@
+{
+    "name": "nft-airdrop",
+    "version": "1.0.0",
+    "description": "Smart contract to airdrop NFT's using merkle proof",
+    "scripts": {
+        "clean-compile": "hardhat clean && hardhat compile",
+        "test": "hardhat test",
+        "size": "hardhat size-contracts"
+    },
+    "author": {
+        "name": "Archana Vaideeswaran",
+        "email": "archanav1929@gmail.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ArchanaVaideeswaran/nft-airdrop"
+    },
+    "devDependencies": {
+        "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+        "hardhat": "^2.12.4",
+        "hardhat-contract-sizer": "^2.6.1"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^4.8.0",
+        "dotenv": "^16.0.3",
+        "keccak256": "^1.0.6",
+        "merkletreejs": "^0.3.8"
+    }
+}

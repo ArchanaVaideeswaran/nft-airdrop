@@ -1,8 +1,8 @@
-# Airdrop crypto using merkle proof
+# Airdrop NFT using merkle proof
 
 ## About
 
-MerkleAirdrop is contract that allows recepients to claim NFT's via merkle airdrop if they prove that they are a part of the merkle tree.
+MerkleAirdropNFT is a contract that allows recepients to claim NFT's via merkle airdrop if they prove that they are a part of the merkle tree.
 
 <!-- Generate merkle tree using [merkle-tree-generator](./scripts/merkle-tree-generator.ts), by passing in a list of recepients (refer [airdrop.json](./airdrop.json)). -->
 

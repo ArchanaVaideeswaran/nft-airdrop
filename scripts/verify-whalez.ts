@@ -1,10 +1,10 @@
 import hre from "hardhat";
-const AirdropNFT = require("../build/goerli/MerkleAirdropNFT.json");
+const Whalez = require("../build/goerli/Whalez.json");
 
 const main = async () => {
     await hre.run("verify:verify", {
-        address: AirdropNFT.address,
-        contract: "contracts/MerkleAirdropNFT.sol:MerkleAirdropNFT",
+        address: Whalez.address,
+        contract: "contracts/Whalez.sol:Whalez",
     });
 };
 

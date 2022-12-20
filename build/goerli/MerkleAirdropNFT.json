@@ -1,0 +1,202 @@
+{
+  "address": "0xc689202d0dd7A259A33985cF7dD1A7928e7B7562",
+  "network": {
+    "name": "goerli",
+    "chainId": 5
+  },
+  "abi": [
+    {
+      "type": "constructor",
+      "payable": false,
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AirdropInActive",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "AlreadyClaimed",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotContract",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotERC721",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotInMerkleTree",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NotOwner",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ZeroAddress",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ZeroMerkleRoot",
+      "inputs": []
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "Claimed",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "claimant",
+          "indexed": true
+        },
+        {
+          "type": "uint256",
+          "name": "tokenId",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "MerkleRootChanged",
+      "inputs": [
+        {
+          "type": "bytes32",
+          "name": "newMerkleRoot",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "NonFungibleTokenChanged",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "newNFT",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "SenderChanged",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "newSender",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "claim",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "tokenId"
+        },
+        {
+          "type": "bytes32[]",
+          "name": "proof"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getMerkleRoot",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "bytes32"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getSender",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getToken",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "hasClaimed",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "claimant"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "sender"
+        },
+        {
+          "type": "address",
+          "name": "nft"
+        },
+        {
+          "type": "bytes32",
+          "name": "merkleRoot"
+        }
+      ],
+      "outputs": []
+    }
+  ]
+}

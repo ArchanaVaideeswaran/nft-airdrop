@@ -120,6 +120,20 @@ describe("Merkle AirdropNFT Token", () => {
             ).to.be.revertedWithCustomError(airdropNft, "NotContract");
         });
 
+        it("should revert if initialized with non ERC721 contract address for nft", async () => {
+            const Greeter = await ethers.getContractFactory("Greeter");
+            const greeter = await Greeter.deploy();
+            greeter.deployed();
+
+            await expect(
+                airdropNft.initialize(
+                    sender.address,
+                    greeter.address, // token address
+                    merkleRoot
+                )
+            ).to.be.revertedWithCustomError(airdropNft, "NotERC721");
+        });
+
         it("should let owner to initialize the contract", async () => {
             await expect(
                 airdropNft.initialize(sender.address, nft.address, merkleRoot)

@@ -4,25 +4,25 @@
 
 MerkleAirdropNFT is a contract that allows recepients to claim NFT's via merkle airdrop if they prove that they are a part of the merkle tree.
 
-<!-- Generate merkle tree using [merkle-tree-generator](./scripts/merkle-tree-generator.ts), by passing in a list of recepients (refer [airdrop.json](./airdrop.json)). -->
+Generate merkle tree using [merkle-tree-generator](./scripts/utils/merkle-tree-generator.ts), by passing in a list of recepients (refer [airdrop.json](./airdrop.json)).
 
-<!-- ### Contract structure -->
+### Contract structure
 
-<!-- ![MerkleAirdrop.sol Mindmap](./mindmap.jpg "MerkleAirdrop Mindmap") -->
+![MerkleAirdropNFT.sol Mindmap](./mindmap.jpg "MerkleAirdropNFT Mindmap")
 
-<!-- ## Testing on Goerli testnet
+## Testing on Goerli testnet
 
-MerkleAirdrop.sol deployed at: [0x764b971348f0571E8BCF2Ea2AdBB7E793d93B145](https://goerli.etherscan.io/address/0x764b971348f0571E8BCF2Ea2AdBB7E793d93B145#code)
+MerkleAirdrop.sol deployed at: [0xc689202d0dd7A259A33985cF7dD1A7928e7B7562](https://goerli.etherscan.io/address/0xc689202d0dd7A259A33985cF7dD1A7928e7B7562#code)
 
-TokenXP.sol deployed at: [0xa7Bb5dFF539912fD2a1D06c90d036B88518694CC](https://goerli.etherscan.io/address/0xa7Bb5dFF539912fD2a1D06c90d036B88518694CC#code)
+Whalez.sol deployed at: [0x4561a5610dE098055fD470Bf3aEaDBa1CeA9b5f7](https://goerli.etherscan.io/address/0x4561a5610dE098055fD470Bf3aEaDBa1CeA9b5f7#code)
 
 MerkleAirdrop has been initialized with
 
 ```code
 {
-    sender: "",
-    token: "",
-    merkleRoot: ""
+    sender: '0x7748329C48FE9F5Dc50f5858E174Dbc7A037117D',
+    nft: '0x4561a5610dE098055fD470Bf3aEaDBa1CeA9b5f7',
+    merkleRoot: '0x6c54cfd27bdcdf981adc92f19578a0c2f3e1d6d1d1085008d9c2c7fc52915356'
 }
 ```
 
@@ -30,9 +30,26 @@ The following recepients have been added to merkle tree
 
 ```code
 {
-    "accounts": []
+    "accounts": [
+        {
+            "address": "0x5B9e19a2d7a4Bc81B120D07EF844aB96E874f911",
+            "tokenId": "3"
+        },
+        {
+            "address": "0x03Dc0382895Dff762971FadcaB62236AaD79D518",
+            "tokenId": "4"
+        },
+        {
+            "address": "0x34EE5635641aa3D4B724E0a5EB51B69f0E26Ec8b",
+            "tokenId": "1"
+        },
+        {
+            "address": "0x1eba0B8BBC49921f28b79984B9D9921BfDBccA0c",
+            "tokenId": "2"
+        }
+    ]
 }
-``` -->
+```
 
 ## Installation
 
@@ -95,7 +112,6 @@ Run hardhat node in one terminal and run the deploy script in another terminal.
 ```console
 npx hardhat node
 ```
-
 ```console
 npx hardhat run scripts/deploy.ts --network <network>
 ```
@@ -138,6 +154,6 @@ npx hardhat verify --network <network_name> <deployed_contract_address> --constr
 
 For multiple arguments, follow this [guide](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html#multiple-api-keys-and-alternative-block-explorers).
 
-<!-- ## Reports
+## Reports
 
-Checkout [Reports.md](./Reports.md) -->
+Checkout [Reports.md](./Reports.md)

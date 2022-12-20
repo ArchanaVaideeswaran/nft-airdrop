@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
+import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {MerkleProof} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -9,7 +10,6 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.
  * @dev A contract that allows recipients to claim tokens via 'merkle airdrop'.
  */
 contract MerkleAirdropNFT is ReentrancyGuard {
-
     error AirdropInActive();
     error NotInMerkleTree();
     error AlreadyClaimed();
@@ -17,7 +17,9 @@ contract MerkleAirdropNFT is ReentrancyGuard {
     error ZeroMerkleRoot();
     error ZeroAddress();
     error NotContract();
+    error NotERC721();
 
+    bytes4 private constant ERC721_INTERFACE_ID = type(IERC721).interfaceId;
     address private _owner;
     address private _sender;
     IERC721 private _nft;
@@ -114,6 +116,8 @@ contract MerkleAirdropNFT is ReentrancyGuard {
     function setNonFungibleToken(address nft) internal {
         if (nft == address(0)) revert ZeroAddress();
         if (nft.code.length <= 0) revert NotContract();
+        if (!(IERC165(nft).supportsInterface(ERC721_INTERFACE_ID)))
+            revert NotERC721();
         if (nft == address(_nft)) return;
         _nft = IERC721(nft);
         emit NonFungibleTokenChanged(nft);

@@ -13,3 +13,6 @@ artifacts
 merkle.json
 proofs-localhost.json
 proofs-goerli.json
+
+#vscode
+.vscode
